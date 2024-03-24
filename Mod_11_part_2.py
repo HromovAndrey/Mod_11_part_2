@@ -1,54 +1,27 @@
-#Завдання 2
-# Реалізуйте клас «Стадіон». Збережіть у класі: назву
-#стадіону, дату відкриття, країну, місто, місткість. Реалізуйте
-#методи класу для введення-виведення даних та інших
-#операцій. До вже реалізованого класу «Стадіон» додайте
+#Завдання 3
+# До вже реалізованого класу «Автомобіль» додайте
 #необхідні перевантажені методи та оператори.
+class Car:
+    def __init__(self, brand, model, year):
+        self.brand = brand
+        self.model = model
+        self.year = year
 
-class Stadium:
-    def __init__(self, name, opening_date, country, city, capacity):
-        self.name = name
-        self.opening_date = opening_date
-        self.country = country
-        self.city = city
-        self.capacity = capacity
-
-    def display_info(self):
-        print("Стадіон:", self.name)
-        print("Дата відкриття:", self.opening_date)
-        print("Країна:", self.country)
-        print("Місто:", self.city)
-        print("Місткість:", self.capacity)
+    def start_engine(self):
+        print("Двигун запущено.")
 
     def __str__(self):
-        return f"Стадіон {self.name} розташований у місті {self.city}, {self.country}. Відкритий {self.opening_date}. Має місткість {self.capacity} осіб."
+        return f"{self.year} {self.brand} {self.model}"
 
     def __eq__(self, other):
-        return self.name == other.name and self.city == other.city
+        return self.brand == other.brand and self.model == other.model and self.year == other.year
 
-    def __lt__(self, other):
-        return self.capacity < other.capacity
+    def __ne__(self, other):
+        return not self.__eq__(other)
 
-    def __add__(self, other):
-        total_capacity = self.capacity + other.capacity
-        return Stadium(f"{self.name} & {other.name}", "Порожній", "Сума", "Сума", total_capacity)
+car1 = Car("Toyota", "Camry", 2020)
+car2 = Car("Toyota", "Camry", 2020)
 
-
-stadium1 = Stadium("Camp Nou", "24.09.1957", "Іспанія", "Барселона", 99354)
-stadium2 = Stadium("Santiago Bernabeu", "14.12.1947", "Іспанія", "Мадрид", 81044)
-
-stadium1.display_info()
-print()
-
-print(stadium2)
-print()
-
-print("Чи рівні стадіони?", stadium1 == stadium2)
-print()
-
-print("Стадіон з більшою місткістю:", max(stadium1, stadium2).name)
-print()
-
-merged_stadium = stadium1 + stadium2
-print("Об'єднаний стадіон:", merged_stadium)
-
+print(car1)
+print(car1 == car2)
+print(car1 != car2)
