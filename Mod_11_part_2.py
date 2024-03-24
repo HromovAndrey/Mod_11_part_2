@@ -1,27 +1,28 @@
-#Завдання 3
-# До вже реалізованого класу «Автомобіль» додайте
+#Завдання 4
+#До вже реалізованого класу «Книга» додайте
 #необхідні перевантажені методи та оператори.
-class Car:
-    def __init__(self, brand, model, year):
-        self.brand = brand
-        self.model = model
-        self.year = year
 
-    def start_engine(self):
-        print("Двигун запущено.")
+class Book:
+    def __init__(self, title, author, genre):
+        self.title = title
+        self.author = author
+        self.genre = genre
+
+    def display_info(self):
+        print(f"Назва: {self.title}, Автор: {self.author}, Жанр: {self.genre}")
 
     def __str__(self):
-        return f"{self.year} {self.brand} {self.model}"
+        return f"Назва: {self.title}, Автор: {self.author}, Жанр: {self.genre}"
 
     def __eq__(self, other):
-        return self.brand == other.brand and self.model == other.model and self.year == other.year
+        return self.title == other.title and self.author == other.author and self.genre == other.genre
 
     def __ne__(self, other):
         return not self.__eq__(other)
 
-car1 = Car("Toyota", "Camry", 2020)
-car2 = Car("Toyota", "Camry", 2020)
+book1 = Book("1984", "Джордж Оруелл", "Наукова фантастика")
+book2 = Book("1984", "Джордж Оруелл", "Наукова фантастика")
 
-print(car1)
-print(car1 == car2)
-print(car1 != car2)
+print(book1)
+print(book1 == book2)
+print(book1 != book2)
